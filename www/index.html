@@ -8,11 +8,10 @@
     <script src="components/loader.js"></script>
     <link rel="stylesheet" href="components/loader.css">
     <link rel="stylesheet" href="css/style.css">
-    <script>
-    </script>
+    <script src="js/animation.js"></script>
 </head>
 <body>
-    <h1>かごしま雑学クイズアプリ</h1>
+    <h1>かごしま雑学<br>クイズアプリ</h1>
     <h2>問題</h2>
     <div id="text_q"></div>
     <h2>選択</h2>
@@ -58,6 +57,7 @@
             for (n = 1; n <= q_sel; n++) {
                 if (qa[count][n] != "") {
                     s += " 【<a href='javascript:answer(" + n + ")'>" + n + ":" + qa[count][n] + "</a>】";
+                    // s += answer(" + n + ") + ":" + qa[count][n] + "";
                 }
             }
             document.getElementById("text_s").innerHTML = s;
@@ -101,7 +101,7 @@
                 // 次の選択肢
                 s = " 【<a href='javascript:history.back()'>前のページに戻る</a>】";
                 s += " 【<a href='javascript:setReady()'>同じ問題を最初から</a>】";
-                s += " 【<a href=''>次の問題に進む</a>】";
+                s += " 【<a href='top.html'>トップへ戻る</a>】";
                 document.getElementById("text_s").innerHTML = s;
             }
         }
