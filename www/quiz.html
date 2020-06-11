@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="components/loader.css">
     <link rel="stylesheet" href="css/style.css">
     <!-- <script src="js/animation.js"></script> -->
+    <script src="ja/main.js"></script>
     <script>
         if (window.performance.navigation.type == 1) {
         window.location.href = 'index.html'
@@ -21,9 +22,19 @@
     <h4 id="textNo"></h4>
     <div id="text_q"></div>
     <h2>選択</h2>
+    <div id="select">
     <ul>
-        <li id="text_s"></li>
+        <li id="text_s">
+            <!-- レイヤー -->
+            <div id="layer"></div>
+            <!-- ポップアップ -->
+            <div id="popup">
+                <div>popup</div>
+                <input type="button" id="close" value="close popup">
+            </div>
+        </li>
     </ul>
+    </div>
     <h2>解答</h2>
     <div id="text_a"></div>
 
@@ -65,7 +76,7 @@
             s = "";
             for (n = 1; n <= q_sel; n++) {
                 if (qa[count][n] != "") {
-                    s += " 【<a href='javascript:answer(" + n +")'>" + n + ":" + qa[count][n] + "</a>】";
+                    s += " <a href='javascript:answer(" + n +")'>" + n + ":" + qa[count][n] + "</a>";
                 }
             }
             document.getElementById("text_s").innerHTML = s;
@@ -96,7 +107,7 @@
                 // 1行目
                 s += "<tr><th>問題</th>";
                     for (n = 0; n < qa.length; n++) {
-                        s += "<th>" + (n + 1) + "</th>";
+                        s += "<td>" + (n + 1) + "</td>";
                     }
                 // 2行目
                 s += "<tr><th>成績</th>";
@@ -107,10 +118,12 @@
                 s += "</table>";
                 document.getElementById("text_q").innerHTML = s;
                 // 次の選択肢
-                s = " 【<a href='javascript:history.back()'>前のページに戻る</a>】";
-                s += " 【<a href='javascript:setReady()'>同じ問題を最初から</a>】";
-                s += " 【<a href='index.html'>トップへ戻る</a>】";
+                s = " <a href='javascript:history.back()'>前のページに戻る</a>";
+                s += " <a href='javascript:setReady()'>同じ問題を最初から</a>";
+                s += " <a href='index.html'>トップへ戻る</a>";
                 document.getElementById("text_s").innerHTML = s;
+                // 解答一覧
+                s = "<table border='2'><caption>解答一覧</caption>";
             }
         }
     </script>
