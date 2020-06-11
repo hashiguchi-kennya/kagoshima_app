@@ -9,34 +9,27 @@
     <link rel="stylesheet" href="components/loader.css">
     <link rel="stylesheet" href="css/style.css">
     <!-- <script src="js/animation.js"></script> -->
-    <script src="ja/main.js"></script>
     <script>
         if (window.performance.navigation.type == 1) {
         window.location.href = 'index.html'
-        }
+        } 
     </script>
 </head>
 <body>
-    <h1>かごしま雑学<br>クイズアプリ</h1>
-    <h2>問題</h2>
-    <h4 id="textNo"></h4>
-    <div id="text_q"></div>
-    <h2>選択</h2>
-    <div id="select">
-    <ul>
-        <li id="text_s">
-            <!-- レイヤー -->
-            <div id="layer"></div>
-            <!-- ポップアップ -->
-            <div id="popup">
-                <div>popup</div>
-                <input type="button" id="close" value="close popup">
-            </div>
-        </li>
-    </ul>
+    <div class="content">
+        <h1>かごしま雑学<br>クイズアプリ</h1>
+        <h2>問題</h2>
+        <h4 id="textNo"></h4>
+        <div id="text_q"></div>
+        <h2>選択</h2>
+        <div id="select">
+        <ul>
+            <li id="text_s"></li>
+        </ul>
+        </div>
+        <h2>解答</h2>
+        <div id="text_a"></div>
     </div>
-    <h2>解答</h2>
-    <div id="text_a"></div>
 
     <script type="text/javascript">
         // 問題と選択肢と解答
@@ -90,12 +83,18 @@
             if (num == qa[count][q_sel + 1]) {
                 // 正解
                 answers[count] = "〇";
+                s += answers[count] + qa[count][num];
+                document.getElementById("text_a").innerHTML = s;
+                alert("正解です！ \n正解は(" + s + ")です。");
             } else {
                 // はずれ
                 answers[count] = "✕";
+                s += answers[count] + qa[count][num];
+                document.getElementById("text_a").innerHTML = s;
+                alert("不正解です！ \n正解は(" + s + ")です。");
             }
-            s += answers[count] + qa[count][num];
-            document.getElementById("text_a").innerHTML = s;
+            // s += answers[count] + qa[count][num];
+            // document.getElementById("text_a").innerHTML = s;
 
             // 次の問題を表示
             count++;
