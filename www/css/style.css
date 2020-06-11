@@ -1,24 +1,15 @@
 /**/
 body {
-  transition: all 1s;
+  /* transition: all 1s; */
   font-size: 15px;
   font-family: Verdana, sans-serif;
+  margin: auto;
+  /* background-image: url("/image/sakurajima2.jpg") !important; */
 }
 
-/* top.html_css */
-.bodyfadeout {
-  opacity: 0;
-}
-
-#start {
-  font-size: 20px;
-  font-weight: bold;
-  width: 100px;
-  height: 70px;
-  background-color: coral;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
+/* index.html_css */
+.image {
+  background-color: skyblue !important;
 }
 
 h1 {
@@ -29,7 +20,19 @@ p {
   text-align: center;
 }
 
-/* index.html_css */
+.wrapper{
+  padding: 20px; 
+ }
+ .square{
+  text-align: center;
+  margin-top: 0.5rem;
+  padding: 1rem;
+  background-color: #E3E6E9;
+  border: 1px dotted #000;
+   cursor: pointer;
+ }
+
+/* quiz.html_css */
 li {
   list-style: none;
 }

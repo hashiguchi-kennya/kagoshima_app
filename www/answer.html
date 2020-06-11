@@ -8,7 +8,7 @@
     <script src="components/loader.js"></script>
     <link rel="stylesheet" href="components/loader.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/animation.js"></script>
+    <!-- <script src="js/animation.js"></script> -->
     <script>
         if (window.performance.navigation.type == 1) {
         window.location.href = 'index.html'
@@ -19,16 +19,9 @@
 <body>
   <h2>解答</h2>
   <div id="text_a"></div>
-  <ons-navigator swipeable id="myNavigator" page="quiz.html"></ons-navigator>
-  <template id="quiz.html">
-    <ons-page id="quiz">
-      <ons-button id="push-button">次の問題へ</ons-button>
-    </ons-page>
-  </template>
+  <div><a href="quiz.html">次の問題へ</a></div>
 
-  <script>
-    const btn = document.getElementById('btn');
-
+  <script type="text/javascript">
       // 解答表示
       function answer(num) {
           var s;
@@ -71,13 +64,5 @@
             document.getElementById("text_s").innerHTML = s;
           }
         }
-
-    document.addEventListener('init', function(event) {
-        var page = event.target;
-
-        querySelector('#push-button').onclick = function() {
-        document.querySelector('#myNavigator').pushPage('quiz.html', {data: {title: 'かごしま雑学クイズアプリ'}});
-        };
-    });
   </script>
 </body>
