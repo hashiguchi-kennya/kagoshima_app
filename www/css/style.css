@@ -1,32 +1,71 @@
 /**/
 body {
-  /* transition: all 1s; */
-  font-size: 15px;
   font-family: Verdana, sans-serif;
-  margin: auto;
-  background-color: rgba(195, 158, 78, 0.383) !important;
-  /* background-image: url("../image/sakurajima2_1.jpg") !important; */
+  /* background-color: rgba(195, 158, 78, 0.383) !important; */
+  background: linear-gradient(to top, rgba(217, 175, 217, 0.7) 0%, rgba(151, 217, 225, 0.7) 100%),url(../image/sakurajima2_2.jpg) !important;
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .content {
   text-align: center;
+  margin-top: 25%;
 }
 
 /* index.html_css */
-.wrapper{
-  padding: 20px; 
- }
- .square{
-  text-align: center;
-  margin-top: 0.5rem;
-  padding: 1rem;
-  background-color: #E3E6E9;
-  border: 1px dotted #000;
-   cursor: pointer;
- }
+
+.fade_in {
+  /* アニメーション設定 */
+  animation-name: fade-in2;
+  animation-duration: 1.5s; /* アニメーション時間 */
+  animation-timing-function: ease-out; /* アニメーションさせるイージング */
+  animation-delay: 0.5s; /* アニメーション開始させる時間 */
+  animation-iteration-count: 1; /* 繰り返し回数 */
+  animation-direction: normal; /* 往復処理をするかどうか */
+  animation-fill-mode: forwards; /* アニメーション後のスタイルをどうするか */
+}
+
+/* アニメーション */
+@keyframes fade-in2 {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -20px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fade_in > h1 {
+  color: black;
+  font-family: Noto Sns JP;
+  background: #dfefff;
+  box-shadow: 0px 0px 0px 5px #dfefff;
+  border: dashed 2px white;
+  padding: 0.2em 0.5em;
+}
+
+.circle {
+  display: inline-block;
+  text-align: center; /* 左右中央 */
+  width: 100px;
+  height: 100px;
+  /* margin-top: 220px; */
+  line-height: 100px;
+  border-radius: 50%;
+  background: rgb(81, 218, 111);
+}
+
+#anime_test > a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50%;
+}
 
 /* quiz.html_css */
-
 /* 選択肢のリストメニュー */
 #select ul{
   margin: 0;
@@ -35,13 +74,15 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  }
-  #select li{
+}
+
+#select li{
   display: inline;
   padding: 0;
   margin: 0;
-  }
-  #select li a{
+}
+
+#select li a{
   display: block;
   border-left: 8px solid #474655;
   border-top: 1px solid #474655;
@@ -54,12 +95,44 @@ body {
   width: 150px;
   margin: 10px 0px;
   font-size: 14px;
-  }
-  #select li a:hover{
+}
+
+#select li a:hover{
   border-left: 8px solid #474655;
   border-top: 1px solid #474655;
   border-right: 1px solid #474655;
   border-bottom: 1px solid #474655;
   background-color: #d7efd7;
-  }
+}
 
+h1 {
+  background: #dfefff;
+  box-shadow: 0px 0px 0px 5px #dfefff;
+  border: dashed 2px white;
+  padding: 0.2em 0.5em;
+}
+
+/* ポップアップ */
+#layer {
+  display: none;  /* 初期表示は非表示 */
+  position: fixed; 
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.20;
+}
+#popup {
+  display: none;  /* 初期表示は非表示 */
+  position: fixed; 
+  left: 50%;
+  top: 50%;
+  width: 300px;
+  height: 200px;
+  margin-left: -150px;
+  margin-top: -100px;
+  background-color: white;
+  border-radius: 5px;
+  text-align: center;
+}
