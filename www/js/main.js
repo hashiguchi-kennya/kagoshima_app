@@ -1,21 +1,8 @@
-$(function() {
-     
-  // show popupボタンクリック時の処理
-  $('#show').click(function(e) {
-      $('#popup, #layer').show();
-  });
-   
-  // レイヤー/ポップアップのcloseボタンクリック時の処理
-  $('#close, #layer').click(function(e) {
-      $('#popup, #layer').hide();
-  });
-   
-});
-
+// index.html_Audio
 var music = new Audio();
   function init() {
     music.preload = "auto";
-    music.src = "./music/bgm/bgm_maoudamashii_acoustic49.mp3";
+    music.src = "./music/bgm/betelgeuse.mp3";
     music.load();
 
     music.addEventListener("ended", function () {
@@ -35,3 +22,27 @@ var music = new Audio();
   }
 
   init();
+
+  // スライドショー
+  var mySwiper = new Swiper('.swiper-container', {
+    freeMode: true,
+    effect: 'fade',
+    autoplay: {
+      delay: 3000,
+      stopOnLastSlide: false,
+      disableOnInteraction: false,
+      reverseDirection: false
+    },
+    autoHeight: true,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true,
+      dynamicBullets: true,
+      dynamicMainBullets: 2,
+    },
+  });

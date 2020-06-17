@@ -24,20 +24,17 @@
         <h2>選択</h2>
         <div id="select">
         <ul>
-            <li id="text_s"></li>
+            <li id="text_s"><a onClick="sound()"></a></li>
         </ul>
-        <!-- レイヤー -->
-        <div id="layer"></div>
-        <!-- ポップアップ -->
-        <div id="popup">
-            <div>popup</div>
-            <input type="button" id="close" value="close popup">
-        </div>
-
         </div>
         <h2 hidden>解答</h2>
         <div id="text_a" hidden></div>
     </div>
+
+    <audio id="sound-file" preload="auto">
+        <source src="./www/music/se/se_seikai.mp3" type="audio/mp3">
+        <source src="./www/music/se/se_hazure.mp3" type="audio/mp3">
+    </audio>
 
     <script type="text/javascript">
         // 問題と選択肢と解答
@@ -91,7 +88,10 @@
             if (num == qa[count][q_sel + 1]) {
                 // 正解
                 answers[count] = "〇";
-                
+                // 効果音
+                function sound() {
+                    document.getElementById('sound-file').play();
+                }
                 s += answers[count] + qa[count][num];
                 document.getElementById("text_a").innerHTML = s;
                 const correctAnswerIndex = qa[count][qa[count].length - 1];
@@ -99,6 +99,10 @@
             } else {
                 // はずれ
                 answers[count] = "✕";
+                // 効果音
+                function sound() {
+                    document.getElementById('sound-file').play();
+                }
                 s += answers[count] + qa[count][num];
                 document.getElementById("text_a").innerHTML = s;
                 const correctAnswerIndex = qa[count][qa[count].length - 1];
