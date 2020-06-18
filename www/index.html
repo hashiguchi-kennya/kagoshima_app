@@ -10,8 +10,6 @@
     <script src="components/loader.js"></script>
     <link rel="stylesheet" href="components/loader.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/main.js"></script>
-    <!-- <bgsound src="C:\Users\user\かごしま雑学クイズアプリ\www\music\bgm\bgm_maoudamashii_acoustic49.mp3" loop="infinite"> -->
 </head>
 
 <body>
@@ -23,8 +21,12 @@
     <div class="circle">
       <div id="anime_test"><a href="quiz.html">START!</a></div>
     </div>
-    <h5><a href="kagoshima.html">かごしまの魅力</a></h5>
+    <h5><a href="kagoshima.html" class="btn-orange">かごしまの魅力</a></h5>
+    <p>BGM</p>
     <button onclick="play()" id="play">再生</button>
-    <button onclick="stop()">停止</button>
+    <button onclick="stop()" id="stop">停止</button>
   </div>
+  <audio id="music" src="./music/bgm/betelgeuse.mp3"></audio>
+  <script src="js/main.js"></script>
 </body>
+</html>
